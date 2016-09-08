@@ -16,6 +16,7 @@ ROOT_DIR = environ.Path(__file__) - 3  # (test_case_monkey/config/settings/commo
 APPS_DIR = ROOT_DIR.path('test_case_monkey')
 
 env = environ.Env()
+env.read_env(str(ROOT_DIR) + '/.env')
 
 # APP CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -100,7 +101,7 @@ MANAGERS = ADMINS
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-    'default': env.db('DATABASE_URL', default='postgres:///test_case_monkey'),
+    'default': env.db(),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
