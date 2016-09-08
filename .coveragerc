@@ -1,0 +1,5 @@
+[run]
+include = test_case_monkey/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin
