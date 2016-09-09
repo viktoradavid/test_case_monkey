@@ -2,6 +2,8 @@
 
 Test case management tool written in Django
 
+[![Build Status](https://travis-ci.org/Fanarim/test_case_monkey.svg?branch=master)](https://travis-ci.org/Fanarim/test_case_monkey)
+
 Project structure was generated using using Django Cookiecutter ([docs](http://cookiecutter-django.readthedocs.io/en/latest/index.html))
 
 ## Development using Docker
