@@ -106,3 +106,8 @@ gulp.task('watch', ['default'], function() {
   gulp.watch(paths.templates + '/**/*.html').on("change", reload);
 
 });
+
+// Watch styles only
+gulp.task('watch_styles', function() {
+  gulp.watch(paths.sass + '/*.scss', ['styles']);
+});

@@ -50,6 +50,20 @@ Running tests with py.test:
 
 `$ pytest`
 
+#### SASS -> CSS autogeneration using gulp
+* At first, you need to install nodejs and it's package manager (you might need to add repository with newer versions of nodejs)
+
+`sudo apt-get install nodejs`
+
+* After that, install nodejs dependencies listed in package.json
+
+`npm install`
+
+* Multiple gulp tasks are available (see gulpfile.js). If you want to automatically regenerate CSS only, run
+
+`gulp watch_styles`
+
+
 
 ## Deployment using Docker
 
