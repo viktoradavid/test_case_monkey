@@ -46,6 +46,7 @@ THIRD_PARTY_APPS = (
 LOCAL_APPS = (
     # custom users app
     'test_case_monkey.users.apps.UsersConfig',
+    'test_case_monkey.tcm.apps.TestCaseManagementConfig',
     # Your stuff: custom apps go here
 )
 
