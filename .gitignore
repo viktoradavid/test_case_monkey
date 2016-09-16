@@ -55,6 +55,7 @@ node_modules/
 
 # virtual environments
 .env
+venv
 
 # User-uploaded media
 test_case_monkey/media/
