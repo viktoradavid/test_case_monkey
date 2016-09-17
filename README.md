@@ -65,7 +65,12 @@ Running tests with py.test:
 
 `gulp watch_styles`
 
-
+#### Postgres data persistance
+* Docker-compose is mounting some volumes to achieve data persistenct even after deleting a running container. In case you'd like to clear the database data and their backups, run:
+```
+rm -r /var/lib/docker/volumes/testcasemonkey_postgres_data_dev/_data/*
+rm -r /var/lib/docker/volumes/testcasemonkey_postgres_backup_dev/_data/*
+```
 
 ## Deployment using Docker
 

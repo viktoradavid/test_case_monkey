@@ -1,5 +1,5 @@
 #!/bin/sh
-echo "Running python manage.py makemigrations tcm"
+echo "Running python manage.py makemigrations"
 python manage.py makemigrations
 echo "Running python manage.py migrate"
 python manage.py migrate
