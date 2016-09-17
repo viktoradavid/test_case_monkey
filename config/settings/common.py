@@ -68,7 +68,8 @@ MIDDLEWARE_CLASSES = (
 # MIGRATIONS CONFIGURATION
 # ------------------------------------------------------------------------------
 MIGRATION_MODULES = {
-    'sites': 'test_case_monkey.contrib.sites.migrations'
+    'sites': 'test_case_monkey.contrib.sites.migrations',
+    'tcm': 'test_case_monkey.tcm.migrations',
 }
 
 # DEBUG
