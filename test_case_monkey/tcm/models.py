@@ -62,11 +62,15 @@ class TestScenarioAttributesBase(models.Model):
 
 
 class TestScenarioTemplateAttributes(TestScenarioAttributesBase):
-    pass
+    test_scenario = models.ForeignKey(TestScenarioTemplate,
+                                      on_delete=models.CASCADE,
+                                      related_name='attributes')
 
 
 class TestScenarioAttributes(TestScenarioAttributesBase):
-    pass
+    test_scenario = models.ForeignKey(TestScenario,
+                                      on_delete=models.CASCADE,
+                                      related_name='attributes')
 
 
 class TestCaseBase(models.Model):
