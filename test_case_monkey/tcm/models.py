@@ -17,6 +17,9 @@ class Project(models.Model):
                                      on_delete=models.CASCADE,
                                      related_name='projects')
 
+    def __str__(self):
+        return str(self.name)
+
 
 class TestRun(models.Model):
     name = models.CharField(max_length=50)
@@ -25,6 +28,9 @@ class TestRun(models.Model):
     finished = models.BooleanField()
     author = models.CharField(max_length=50)  # TODO use real username
 
+    def __str__(self):
+        return str(self.name)
+
 
 class TestScenarioBase(models.Model):
     name = models.CharField(max_length=50)
@@ -32,6 +38,9 @@ class TestScenarioBase(models.Model):
 
     class Meta:
         abstract = True
+
+    def __str__(self):
+        return str(self.name)
 
 
 class TestScenarioTemplate(TestScenarioBase):
@@ -81,6 +90,9 @@ class TestCaseBase(models.Model):
     description = models.TextField()
     expected_result = models.TextField(null=True)
 
+    def __str__(self):
+        return str(self.name)
+
     class Meta:
         abstract = True
 
@@ -121,3 +133,6 @@ class Bug(models.Model):
                               max_length=2)
     status_verbose = models.CharField(max_length=50)
     testcase_template = models.ForeignKey(TestCaseTemplate)
+
+    def __str__(self):
+        return str(self.subject)
