@@ -84,3 +84,18 @@ Sentry is an error logging aggregator service. You can sign up for a free accoun
 The system is setup with reasonable defaults, including 404 logging and integration with the WSGI application.
 
 You must set the DSN url in production.
+
+
+### Other useful notes
+
+#### Visualizing models
+
+It is possible to generate a visualized data model from Django models using the following command:
+
+`python3 manage.py graph_models --pygraphviz -a -g -o datamodel.png`
+
+To generate model for `tcm` app only, use:
+
+`python3 manage.py graph_models --pygraphviz -g -o datamodel.png tcm`
+
+Some dependencies might be required (`graphviz`, `graphviz-dev`, `pygraphviz`)
