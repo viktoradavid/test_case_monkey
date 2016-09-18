@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div>
+
+    <h2>Organisations</h2>
+
+    <div>
+        {% for org in organisations %}
+            <li><a href="./{{ org.name }}">{{ org.name }}</a></li>
+        {% endfor %}
+
+    </div>
+
+</div>
+{% endblock content %}

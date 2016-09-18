@@ -7,11 +7,19 @@ from . import views
 from django.views import defaults as default_views
 
 urlpatterns = [
-    # TODO tcm index, list of orgs or redirect to one specific org
-    url(r'^$', default_views.page_not_found, kwargs={'exception': Exception('View yet to be created. ')}),
+    # list of orgs. TODO redirect to one specific org?
+    url(
+        r'^$',
+        views.OrganisationList.as_view(),
+        name='org-list'
+    ),
 
-    # TODO list of org's options
-    url(r'^(?P<org_short>[\w]+)/$', default_views.page_not_found, kwargs={'exception': Exception('View yet to be created. ')}),
+    # org detail page
+    url(
+        r'^(?P<pk>[\w]+)/$',
+        views.OrganisationDetail.as_view(),
+        name='org-detail'
+    ),
 
     # TODO list of org's projects
     url(r'^(?P<org_short>[\w]+)/projects$', default_views.page_not_found, kwargs={'exception': Exception('View yet to be created. ')}),
