@@ -5,6 +5,9 @@ class Organisation(models.Model):
     name = models.CharField(max_length=50,
                             primary_key=True)
 
+    def __str__(self):
+        return str(self.name)
+
 
 class Project(models.Model):
     name = models.CharField(max_length=50,
@@ -47,7 +50,7 @@ class TestScenario(TestScenarioBase):
     asignee = models.CharField(max_length=50)  # TODO use real username
 
 
-class TestScenarioAttributesBase(models.Model):
+class TestScenarioAttributeBase(models.Model):
     DATATYPE_OPTIONS = (
         ('SB', 'Select box'),
         ('TX', 'Text'),
@@ -61,13 +64,13 @@ class TestScenarioAttributesBase(models.Model):
         abstract = True
 
 
-class TestScenarioTemplateAttributes(TestScenarioAttributesBase):
+class TestScenarioTemplateAttribute(TestScenarioAttributeBase):
     test_scenario = models.ForeignKey(TestScenarioTemplate,
                                       on_delete=models.CASCADE,
                                       related_name='attributes')
 
 
-class TestScenarioAttributes(TestScenarioAttributesBase):
+class TestScenarioAttribute(TestScenarioAttributeBase):
     test_scenario = models.ForeignKey(TestScenario,
                                       on_delete=models.CASCADE,
                                       related_name='attributes')
@@ -107,7 +110,7 @@ class TestCase(TestCaseBase):
                                  related_name='testcases')
 
 
-class Bugs(models.Model):
+class Bug(models.Model):
     STATUS_OPTIONS = (
         ('CL', 'CLOSED'),
         ('OP', 'OPEN'),
