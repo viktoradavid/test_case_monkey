@@ -20,6 +20,10 @@ class Project(models.Model):
     def __str__(self):
         return str(self.name)
 
+    # TODO makes no sense while name is PK, change this
+    class Meta:
+        unique_together = (('name', 'organisation'),)
+
 
 class TestRun(models.Model):
     name = models.CharField(max_length=50)
