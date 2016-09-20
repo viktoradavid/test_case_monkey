@@ -75,7 +75,7 @@ class TestScenarioAttributeBase(models.Model):
 
     key = models.CharField(max_length=50)
     datatype = models.CharField(max_length=2, choices=DATATYPE_OPTIONS)
-    value = models.TextField()
+    value = models.TextField(null=True)
 
     class Meta:
         abstract = True
