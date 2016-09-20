@@ -28,6 +28,10 @@ class TestRun(models.Model):
     finished = models.BooleanField()
     author = models.CharField(max_length=50)  # TODO use real username
 
+    project = models.ForeignKey(Project,
+                                on_delete=models.CASCADE,
+                                related_name='testruns')
+
     def __str__(self):
         return str(self.name)
 
