@@ -16,7 +16,7 @@ urlpatterns = [
 
     # org detail page
     url(
-        r'^(?P<pk>[\w]+)/$',
+        r'^(?P<org_pk>[\w]+)/$',
         views.OrganisationDetail.as_view(),
         name='org-detail'
     ),
@@ -26,6 +26,13 @@ urlpatterns = [
 
     # TODO creation of org's projects
     url(r'^(?P<org_short>[\w]+)/projects/create$', default_views.page_not_found, kwargs={'exception': Exception('View yet to be created. ')}),
+
+    # project detail page
+    url(
+        r'^(?P<org_pk>[\w]+)/projects/(?P<project_pk>[\w]+)/$',
+        views.ProjectDetail.as_view(),
+        name='project-detail'
+    ),
 
     # TODO edit project details
     url(r'^(?P<org_short>[\w]+)/projects/(?P<project_id>\d+)/edit$', default_views.page_not_found, kwargs={'exception': Exception('View yet to be created. ')}),
