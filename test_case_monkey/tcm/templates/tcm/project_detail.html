@@ -11,5 +11,10 @@
     {% for scenario in project.scenarios.all %}
       <li><a href="./scenarios/{{ scenario.id }}">{{ scenario.name }}</a></li>
     {% endfor %}
+    <br />
+    <h4>Testruns</h4>
+    {% for testrun in project.testruns.all %}
+      <li><a href="./testruns/{{ testrun.id }}">{{ testrun.name }}</a></li>
+    {% endfor %}
 </div>
 {% endblock content %}

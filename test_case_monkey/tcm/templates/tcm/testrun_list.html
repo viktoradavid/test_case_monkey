@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div>
+
+  <h2>Testruns</h2>
+    <!--TODO <h2>Testruns in {{ parent_project.name }}</h2> -->
+
+    <div>
+        {% for testrun in testruns %}
+            <li><a href="./{{ testrun.id }}">{{ testrun.name }}</a></li>
+        {% endfor %}
+
+    </div>
+
+</div>
+{% endblock content %}

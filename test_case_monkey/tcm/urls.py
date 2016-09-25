@@ -43,8 +43,12 @@ urlpatterns = [
     # TODO create scenario templates
     url(r'^(?P<org_short>[\w]+)/projects/(?P<project_id>\d+)/scenarios/create$', default_views.page_not_found, kwargs={'exception': Exception('View yet to be created. ')}),
 
-    # TODO list of scenarios's testcases templates
-    url(r'^(?P<org_short>[\w]+)/projects/(?P<project_id>\d+)/scenarios/(?P<scenario_id>\d+)$', default_views.page_not_found, kwargs={'exception': Exception('View yet to be created. ')}),
+    # scenario detail page
+    url(
+        r'^(?P<org_pk>[\w]+)/projects/(?P<project_pk>[\w]+)/scenarios/(?P<scenario_pk>\d+)$',
+        views.ScenarioDetail.as_view(),
+        name='scenario-detail',
+    ),
 
     # TODO edit scenario template
     url(r'^(?P<org_short>[\w]+)/projects/(?P<project_id>\d+)/scenarios/(?P<scenario_id>\d+)/edit$', default_views.page_not_found, kwargs={'exception': Exception('View yet to be created. ')}),
@@ -52,11 +56,19 @@ urlpatterns = [
     # TODO create scenario's testcase template
     url(r'^(?P<org_short>[\w]+)/projects/(?P<project_id>\d+)/scenarios/(?P<scenario_id>\d+)$/create', default_views.page_not_found, kwargs={'exception': Exception('View yet to be created. ')}),
 
-    # TODO list of project's testruns
-    url(r'^(?P<org_short>[\w]+)/projects/(?P<project_id>\d+)/testruns$', default_views.page_not_found, kwargs={'exception': Exception('View yet to be created. ')}),
+    # list of project's testruns
+    url(
+        r'^(?P<org_pk>[\w]+)/projects/(?P<project_pk>[\w]+)/testruns/$',
+        views.TestRunList.as_view(),
+        name='testrun-list',
+    ),
 
-    # TODO test run detail page
-    url(r'^(?P<org_short>[\w]+)/projects/(?P<project_id>\d+)/testruns/(?P<testrun_id>\d+)$', default_views.page_not_found, kwargs={'exception': Exception('View yet to be created. ')}),
+    # testrun detail page
+    url(
+        r'^(?P<org_pk>[\w]+)/projects/(?P<project_pk>[\w]+)/testruns/(?P<testrun_pk>\d+)$',
+        views.TestRunDetail.as_view(),
+        name='testrun-detail',
+    ),
 
     # TODO test run edit page
     url(r'^(?P<org_short>[\w]+)/projects/(?P<project_id>\d+)/testruns/(?P<testrun_id>\d+)/edit$', default_views.page_not_found, kwargs={'exception': Exception('View yet to be created. ')}),

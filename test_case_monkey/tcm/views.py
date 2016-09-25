@@ -33,3 +33,65 @@ class ProjectDetail(DetailView):
                                        name=self.kwargs['org_pk'])
 
         return context
+
+
+class ScenarioDetail(DetailView):
+    model = models.TestScenarioTemplate
+    context_object_name = 'scenario'
+    pk_url_kwarg = 'scenario_pk'
+
+    def get_context_data(self, **kwargs):
+        context = super(ScenarioDetail, self).get_context_data(**kwargs)
+
+        # check if scenario is listed in given project and organisation,
+        # otherwise return 404
+        parent_project = get_object_or_404(models.Project,
+                                           name=self.kwargs['project_pk'])
+        parent_org = get_object_or_404(models.Organisation,
+                                       name=self.kwargs['org_pk'])
+        if parent_project not in parent_org.projects.all():
+            pass
+            # TODO return 404
+
+        return context
+
+
+class TestRunDetail(DetailView):
+    model = models.TestRun
+    context_object_name = 'testrun'
+    pk_url_kwarg = 'testrun_pk'
+
+    def get_context_data(self, **kwargs):
+        context = super(TestRunDetail, self).get_context_data(**kwargs)
+
+        # check if scenario is listed in given project and organisation,
+        # otherwise return 404
+        parent_project = get_object_or_404(models.Project,
+                                           name=self.kwargs['project_pk'])
+        parent_org = get_object_or_404(models.Organisation,
+                                       name=self.kwargs['org_pk'])
+        if parent_project not in parent_org.projects.all():
+            pass
+            # TODO return 404
+
+        return context
+
+
+class TestRunList(ListView):
+    model = models.TestRun
+    context_object_name = 'testruns'
+
+    def get_context_data(self, **kwargs):
+        context = super(TestRunList, self).get_context_data(**kwargs)
+
+        # check if testrun is listed in given project and organisation,
+        # otherwise return 404
+        parent_project = get_object_or_404(models.Project,
+                                           name=self.kwargs['project_pk'])
+        parent_org = get_object_or_404(models.Organisation,
+                                       name=self.kwargs['org_pk'])
+        if parent_project not in parent_org.projects.all():
+            pass
+            # TODO return 404
+
+        return context
