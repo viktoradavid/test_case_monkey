@@ -35,13 +35,13 @@ class ProjectDetail(DetailView):
         return context
 
 
-class ScenarioDetail(DetailView):
+class ScenarioTemplateDetail(DetailView):
     model = models.TestScenarioTemplate
     context_object_name = 'scenario'
     pk_url_kwarg = 'scenario_pk'
 
     def get_context_data(self, **kwargs):
-        context = super(ScenarioDetail, self).get_context_data(**kwargs)
+        context = super(ScenarioTemplateDetail, self).get_context_data(**kwargs)
 
         # check if scenario is listed in given project and organisation,
         # otherwise return 404
@@ -49,6 +49,33 @@ class ScenarioDetail(DetailView):
                                            name=self.kwargs['project_pk'])
         parent_org = get_object_or_404(models.Organisation,
                                        name=self.kwargs['org_pk'])
+        if parent_project not in parent_org.projects.all():
+            pass
+            # TODO return 404
+
+        return context
+
+
+class TestCaseTemplateDetail(DetailView):
+    model = models.TestCaseTemplate
+    context_object_name = 'testcase'
+    pk_url_kwarg = 'testcase_pk'
+
+    def get_context_data(self, **kwargs):
+        context = super(TestCaseTemplateDetail, self).get_context_data(**kwargs)
+
+        # check if scenario is listed in given project and organisation,
+        # otherwise return 404
+        parent_scenario_template = get_object_or_404(
+            models.TestScenarioTemplate,
+            id=self.kwargs['scenario_pk'])
+        parent_project = get_object_or_404(models.Project,
+                                           name=self.kwargs['project_pk'])
+        parent_org = get_object_or_404(models.Organisation,
+                                       name=self.kwargs['org_pk'])
+        if parent_scenario_template not in parent_project.scenarios.all():
+            pass
+            # TODO return 404
         if parent_project not in parent_org.projects.all():
             pass
             # TODO return 404
