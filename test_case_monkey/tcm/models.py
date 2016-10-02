@@ -108,7 +108,7 @@ class TestCaseBase(models.Model):
 class TestCaseTemplate(TestCaseBase):
     scenario = models.ForeignKey(TestScenarioTemplate,
                                  on_delete=models.CASCADE,
-                                 related_name='templates')
+                                 related_name='testcases')
 
 
 class TestCase(TestCaseBase):

@@ -6,7 +6,7 @@
 
     <h2>Organisation {{ organisation.name }}</h2>
     {% for project in organisation.projects.all %}
-      <li><a href="./projects/{{ project.name }}">{{ project.name }}</a></li>
+      <li><a href="./projects/{{ project.name }}/">{{ project.name }}</a></li>
     {% endfor %}
 </div>
 {% endblock content %}

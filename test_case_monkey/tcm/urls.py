@@ -45,7 +45,7 @@ urlpatterns = [
 
     # scenario template detail page
     url(
-        r'^(?P<org_pk>[\w ]+)/projects/(?P<project_pk>[\w ]+)/scenarios/(?P<scenario_pk>\d+)$',
+        r'^(?P<org_pk>[\w ]+)/projects/(?P<project_pk>[\w ]+)/scenarios/(?P<scenario_pk>\d+)/$',
         views.ScenarioTemplateDetail.as_view(),
         name='scenario-detail',
     ),
@@ -58,7 +58,7 @@ urlpatterns = [
 
     # test case template detail page
     url(
-        r'^(?P<org_pk>[\w ]+)/projects/(?P<project_pk>[\w ]+)/scenarios/(?P<scenario_pk>\d+)/testcases/(?P<testcase_pk>\d+)$',
+        r'^(?P<org_pk>[\w ]+)/projects/(?P<project_pk>[\w ]+)/scenarios/(?P<scenario_pk>\d+)/testcases/(?P<testcase_pk>\d+)/$',
         views.TestCaseTemplateDetail.as_view(),
         name='testcase-template-detail',
     ),
@@ -72,13 +72,20 @@ urlpatterns = [
 
     # testrun detail page
     url(
-        r'^(?P<org_pk>[\w ]+)/projects/(?P<project_pk>[\w ]+)/testruns/(?P<testrun_pk>\d+)$',
+        r'^(?P<org_pk>[\w ]+)/projects/(?P<project_pk>[\w ]+)/testruns/(?P<testrun_pk>\d+)/$',
         views.TestRunDetail.as_view(),
         name='testrun-detail',
     ),
 
     # TODO test run edit page
     url(r'^(?P<org_short>[\w]+)/projects/(?P<project_id>\d+)/testruns/(?P<testrun_id>\d+)/edit$', default_views.page_not_found, kwargs={'exception': Exception('View yet to be created. ')}),
+
+    # scenario detail page
+    url(
+        r'^(?P<org_pk>[\w ]+)/projects/(?P<project_pk>[\w ]+)/testruns/(?P<testrun_pk>\d+)/scenarios/(?P<scenario_pk>\d+)/$',
+        views.ScenarioDetail.as_view(),
+        name='scenario-detail',
+    ),
 
     # TODO list of testrun's scenarios
     url(r'^(?P<org_short>[\w]+)/projects/(?P<project_id>\d+)/testruns/(?P<testrun_id>\d+)/scenarios$', default_views.page_not_found, kwargs={'exception': Exception('View yet to be created. ')}),

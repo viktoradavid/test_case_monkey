@@ -122,3 +122,28 @@ class TestRunList(ListView):
             # TODO return 404
 
         return context
+
+
+class ScenarioDetail(DetailView):
+    model = models.TestScenario
+    context_object_name = 'scenario'
+    pk_url_kwarg = 'scenario_pk'
+
+    def get_context_data(self, **kwargs):
+        context = super(ScenarioDetail, self).get_context_data(**kwargs)
+
+        # check if scenario is listed in given project and organisation,
+        # otherwise return 404
+        parent_testrun = get_object_or_404(models.TestRun,
+                                           id=self.kwargs['testrun_pk'])
+        parent_project = get_object_or_404(models.Project,
+                                           name=self.kwargs['project_pk'])
+        parent_org = get_object_or_404(models.Organisation,
+                                       name=self.kwargs['org_pk'])
+
+        if parent_project not in parent_org.projects.all() \
+                or parent_testrun not in parent_project.testruns.all():
+            pass
+            # TODO return 404
+
+        return context
