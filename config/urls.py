@@ -20,7 +20,7 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here
-    url(r'^tcm/', include('test_case_monkey.tcm.urls')),
+    url(r'tcm/', include('test_case_monkey.tcm.urls', namespace='tcm')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -6,6 +6,7 @@ from . import views
 # TODO remove after creating real view
 from django.views import defaults as default_views
 
+app_name='tcm'
 urlpatterns = [
     # list of orgs. TODO redirect to one specific org?
     url(
