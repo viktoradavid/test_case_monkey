@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div>
+    <h2>Delete project {{ project.name }}</h2>
+
+    <br>
+    <br>
+
+    <form action="" method="post">{% csrf_token %}
+        <p>Are you sure you want to delete <strong>"{{ project.name }}"</strong>?</p>
+        <input type="submit" value="Confirm" />
+    </form>
+</div>
+{% endblock content %}

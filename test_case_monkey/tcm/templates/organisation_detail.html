@@ -5,8 +5,16 @@
 <div>
 
     <h2>Organisation {{ organisation.name }}</h2>
+
+    <div>
+        <a href="projects/create"><strong>Create project</strong></a>
+        <br>
+        <br>
+    </div>
+
     {% for project in organisation.projects.all %}
-      <li><a href="./projects/{{ project.name }}/">{{ project.name }}</a></li>
+      <li><a href="projects/{{ project.name }}/">{{ project.name }}</a> <a href="projects/{{ project.name }}/delete"><strong>X</strong></a></li>
     {% endfor %}
+
 </div>
 {% endblock content %}
