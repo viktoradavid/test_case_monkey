@@ -13,7 +13,10 @@
     </div>
 
     {% for project in organisation.projects.all %}
-      <li><a href="projects/{{ project.name }}/">{{ project.name }}</a> <a href="projects/{{ project.name }}/delete"><strong>X</strong></a></li>
+      <li><a href="projects/{{ project.name }}/">{{ project.name }}</a>
+          <a href="projects/{{ project.name }}/delete/"><strong>X</strong></a>
+          <a href="projects/{{ project.name }}/edit/"><strong>E</strong></a>
+      </li>
     {% endfor %}
 
 </div>

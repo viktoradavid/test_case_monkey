@@ -46,8 +46,12 @@ urlpatterns = [
         name='project-delete'
     ),
 
-    # TODO edit project details
-    url(r'^(?P<org_short>[\w]+)/projects/(?P<project_id>\d+)/edit$', default_views.page_not_found, kwargs={'exception': Exception('View yet to be created. ')}),
+    # project edit
+    url(
+        r'^(?P<org_pk>[\w ]+)/projects/(?P<project_pk>[\w ]+)/edit/$',
+        views.ProjectEdit.as_view(),
+        name='project-edit'
+    ),
 
     # TODO list of project's scenarios templates
     url(r'^(?P<org_short>[\w]+)/projects/(?P<project_id>\d+)/scenarios$', default_views.page_not_found, kwargs={'exception': Exception('View yet to be created. ')}),

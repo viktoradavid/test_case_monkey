@@ -1,5 +1,5 @@
 from . import models
-from django.views.generic import CreateView, DeleteView, DetailView, ListView
+from django.views.generic import CreateView, UpdateView, DeleteView, DetailView, ListView
 from django.shortcuts import get_object_or_404
 
 # TODO check user permissions
@@ -49,6 +49,21 @@ class ProjectCreate(CreateView):
         form.instance.organisation = get_object_or_404(models.Organisation,
                                                        name=self.kwargs['org_pk'])
         return super(ProjectCreate, self).form_valid(form)
+
+
+class ProjectEdit(UpdateView):
+    template_name = 'project_edit.html'
+    model = models.Project
+    context_object_name = 'project'
+    pk_url_kwarg = 'project_pk'
+
+    fields = ['description']
+    success_url = '../../..'
+
+    def form_valid(self, form):
+        form.instance.organisation = get_object_or_404(models.Organisation,
+                                                       name=self.kwargs['org_pk'])
+        return super(ProjectEdit, self).form_valid(form)
 
 
 class ProjectDelete(DeleteView):

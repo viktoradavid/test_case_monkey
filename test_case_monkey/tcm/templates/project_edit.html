@@ -5,7 +5,7 @@
 {% load crispy_forms_tags %}
 <div>
 
-    <h2>Add project</h2>
+    <h2>Edit project {{ project.name }}</h2>
     <br />
     <form action="" method="post">{% csrf_token %}
     {{ form|crispy }}
