@@ -6,11 +6,13 @@ from django.shortcuts import get_object_or_404
 
 
 class OrganisationList(ListView):
+    template_name = 'organisation_list.html'
     model = models.Organisation
     context_object_name = 'organisations'
 
 
 class OrganisationDetail(DetailView):
+    template_name = 'organisation_detail.html'
     model = models.Organisation
     context_object_name = 'organisation'
     pk_url_kwarg = 'org_pk'
@@ -21,6 +23,7 @@ class OrganisationDetail(DetailView):
 
 
 class ProjectDetail(DetailView):
+    template_name = 'project_detail.html'
     model = models.Project
     context_object_name = 'project'
     pk_url_kwarg = 'project_pk'
@@ -36,6 +39,7 @@ class ProjectDetail(DetailView):
 
 
 class ScenarioTemplateDetail(DetailView):
+    template_name = 'testscenariotemplate_detail.html'
     model = models.TestScenarioTemplate
     context_object_name = 'scenario'
     pk_url_kwarg = 'scenario_pk'
@@ -57,6 +61,7 @@ class ScenarioTemplateDetail(DetailView):
 
 
 class TestCaseTemplateDetail(DetailView):
+    template_name = 'testcasetemplate_detail.html'
     model = models.TestCaseTemplate
     context_object_name = 'testcase'
     pk_url_kwarg = 'testcase_pk'
@@ -84,6 +89,7 @@ class TestCaseTemplateDetail(DetailView):
 
 
 class TestRunDetail(DetailView):
+    template_name = 'testrun_detail.html'
     model = models.TestRun
     context_object_name = 'testrun'
     pk_url_kwarg = 'testrun_pk'
@@ -105,6 +111,7 @@ class TestRunDetail(DetailView):
 
 
 class TestRunList(ListView):
+    template_name = 'testrun_list.html'
     model = models.TestRun
     context_object_name = 'testruns'
 
@@ -125,6 +132,7 @@ class TestRunList(ListView):
 
 
 class ScenarioDetail(DetailView):
+    template_name = 'testscenario_detail.html'
     model = models.TestScenario
     context_object_name = 'scenario'
     pk_url_kwarg = 'scenario_pk'
